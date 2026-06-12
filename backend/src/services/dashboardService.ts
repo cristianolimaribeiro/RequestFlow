@@ -55,8 +55,8 @@ export class DashboardService {
 
     return {
       counters: stats.rows[0],
-      byCategory: categories.rows,
-      byPriority: priorities.rows,
+      byCategory: categories.rows.map(row => ({ ...row, value: Number(row.value) })),
+      byPriority: priorities.rows.map(row => ({ ...row, value: Number(row.value) })),
       recent: recent.rows
     };
   }
