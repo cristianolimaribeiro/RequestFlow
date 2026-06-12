@@ -1,76 +1,96 @@
 .sidebar {
-  width: 260px;
+  width: 290px;
   background-color: var(--bg-sidebar);
-  color: var(--text-light);
   display: flex;
   flex-direction: column;
-  transition: transform 0.3s ease;
   height: 100vh;
   position: sticky;
   top: 0;
   z-index: 1000;
+  border-right: none;
+  box-shadow: 14px 17px 40px 4px rgba(112, 144, 176, 0.08); /* Sombra elegante à direita */
+  transition: transform 0.3s ease;
 }
 
 .sidebar-overlay {
   display: none;
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(11, 20, 55, 0.5);
   z-index: 999;
-  backdrop-filter: blur(2px);
+  backdrop-filter: blur(4px);
 }
 
 .sidebar-logo {
-  padding: 2rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 40px 30px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
 }
 
 .sidebar-logo h1 {
-  font-size: 1.5rem;
-  font-weight: 700;
-  letter-spacing: -1px;
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--text-main);
 }
 
 .sidebar-logo span {
   color: var(--primary);
 }
 
-.sidebar-close {
-  display: none;
-  background: transparent;
-  color: white;
-  font-size: 2rem;
-  line-height: 1;
+.sidebar-nav {
+  padding: 0 20px;
 }
 
-.sidebar-nav {
-  padding: 1.5rem 0;
+.sidebar-nav ul li {
+  margin-bottom: 8px;
 }
 
 .sidebar-nav ul li a {
-  display: block;
-  padding: 0.875rem 2rem;
-  color: var(--secondary);
-  font-size: 0.875rem;
-  font-weight: 500;
+  display: flex;
+  align-items: center;
+  padding: 14px 16px;
+  color: var(--text-secondary);
+  font-size: 15px;
+  font-weight: 700;
+  border-radius: 12px;
   transition: all 0.2s ease;
 }
 
+.nav-icon {
+  margin-right: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Efeito de Link Inativo para Ativo */
 .sidebar-nav ul li a:hover {
-  background: rgba(255, 255, 255, 0.05);
-  color: white;
+  color: var(--text-main);
 }
 
 .sidebar-nav ul li a.active {
+  background: var(--bg-body);
+  color: var(--primary);
+}
+
+/* O traço lateral clássico de dashboard ativo */
+.sidebar-nav ul li a.active::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  height: 36px;
+  width: 4px;
   background: var(--primary);
-  color: white;
-  border-right: 4px solid white;
+  border-radius: 4px 0 0 4px;
+}
+
+.nav-section-title {
+  color: var(--text-secondary);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 30px 16px 10px;
 }
 
 @media (max-width: 992px) {
@@ -78,16 +98,10 @@
     position: fixed;
     transform: translateX(-100%);
   }
-
   .sidebar.open {
     transform: translateX(0);
   }
-
   .sidebar-overlay.active {
-    display: block;
-  }
-
-  .sidebar-close {
     display: block;
   }
 }

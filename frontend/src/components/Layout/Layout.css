@@ -11,13 +11,13 @@
 }
 
 .main-content {
-  padding: 2rem;
-  background-color: var(--bg-main);
+  padding: 2.5rem;
+  background-color: transparent;
   flex: 1;
 }
 
 @media (max-width: 768px) {
   .main-content {
-    padding: 1rem;
+    padding: 1.5rem;
   }
 }

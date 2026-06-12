@@ -73,11 +73,11 @@ const Dashboard: React.FC = () => {
           <div style={{ height: '300px' }}>
             <ResponsiveContainer width="100%" height="100%">
               <BarChart data={byCategory}>
-                <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="name" />
-                <YAxis />
-                <Tooltip />
-                <Bar dataKey="value" fill="#3b82f6" radius={[4, 4, 0, 0]} />
+                <CartesianGrid vertical={false} stroke="var(--border-light)" />
+                <XAxis dataKey="name" tick={{fill: 'var(--text-secondary)'}} axisLine={false} tickLine={false} />
+                <YAxis tick={{fill: 'var(--text-secondary)'}} axisLine={false} tickLine={false} />
+                <Tooltip cursor={{fill: 'var(--bg-hover)'}} contentStyle={{ borderRadius: '12px', border: 'none', boxShadow: 'var(--shadow-soft)', background: 'var(--bg-surface)', color: 'var(--text-main)' }} />
+                <Bar dataKey="value" fill="var(--primary)" radius={[6, 6, 0, 0]} />
               </BarChart>
             </ResponsiveContainer>
           </div>
